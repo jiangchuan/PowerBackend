@@ -1,0 +1,27 @@
+// protoc -I helloworld/ helloworld/helloworld.proto --go_out=plugins=grpc:helloworld
+// protoc -I proto/ proto/powermeasure.proto --go_out=plugins=grpc:proto
+// protoc -I routeguide/ routeguide/route_guide.proto --go_out=plugins=grpc:routeguide
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.pasn.powermeasure";
+option java_outer_classname = "PowerMeasureProto";
+
+package powermeasure;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
